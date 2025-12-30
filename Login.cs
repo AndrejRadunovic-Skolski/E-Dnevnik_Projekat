@@ -39,10 +39,15 @@ namespace Ednevnik410b
                     {
                         if (String.Compare(tabela.Rows[0]["pass"].ToString(), textBox2.Text) == 0)
                         {
+                            Console.WriteLine("Da");
                             MessageBox.Show("Login uspesan!");
                             this.Hide();
                             Glavna glavna = new Glavna();
                             glavna.Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Pogresna lozinka.");
                         }
                     }
                     else
