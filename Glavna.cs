@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace Ednevnik410b
 {
-    public partial class Form1 : Form
+    public partial class Glavna : Form
     {
-        public Form1()
+        public Glavna()
         {
             InitializeComponent();
+        }
+
+        private void osobeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Osoba frm_Osoba = new Osoba();
+            frm_Osoba.Show();
         }
     }
 }
