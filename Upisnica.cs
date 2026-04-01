@@ -80,6 +80,7 @@ namespace Ednevnik410b
             PopulateComboGodina();
             PopulateComboOdeljenje();
             PopulateComboUcenik();
+            PopulateDataGridView();
         }
 
         private void Combo_Godine_SelectedValueChanged(object sender, EventArgs e)
@@ -113,6 +114,65 @@ namespace Ednevnik410b
                 Combo_Ucenik.SelectedValue = dataGridView1.Rows[brSloga].Cells["os_id"].Value.ToString();
                 textBox1.Text = dataGridView1.Rows[brSloga].Cells["id"].Value.ToString();
             }
+        }
+
+        private void Button_Insert_Click(object sender, EventArgs e)
+        {
+            string naredba = "INSERT INTO upisnica (odeljenje_id, osoba_id) VALUES(";
+            naredba += Combo_Odeljenje.SelectedValue.ToString() + ", ";
+            naredba += Combo_Ucenik.SelectedValue.ToString() + ")";
+            SqlConnection veza = Konekcija.NapraviVezu();
+            SqlCommand komanda = new SqlCommand(naredba, veza);
+            try
+            {
+                veza.Open();
+                komanda.ExecuteNonQuery();
+                veza.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            PopulateDataGridView();
+        }
+
+        private void Button_Delete_Click(object sender, EventArgs e)
+        {
+            string naredba = "DELETE FROM upisnica WHERE id=" + TboxId.Text;
+            SqlConnection veza = Konekcija.NapraviVezu();
+            SqlCommand komanda = new SqlCommand(naredba, veza);
+            try
+            {
+                veza.Open();
+                komanda.ExecuteNonQuery();
+                veza.Close();
+            }
+            catch (Exception greska)
+            {
+                MessageBox.Show(greska.Message);
+            }
+            PopulateDataGridView();
+        }
+
+        private void Button_Update_Click(object sender, EventArgs e)
+        {
+            string naredba = "UPDATE upisnica SET osoba_id = " + Combo_Ucenik.SelectedValue.ToString();
+            naredba += ", odeljenje_id=" + Combo_Odeljenje.SelectedValue.ToString();
+            naredba += " WHERE id=" + textBox1.Text;
+            SqlConnection veza = Konekcija.NapraviVezu();
+            SqlCommand komanda = new SqlCommand(naredba, veza);
+            try
+            {
+                veza.Open();
+                komanda.ExecuteNonQuery();
+                veza.Close();
+            }
+            catch (Exception greska)
+            {
+                MessageBox.Show(greska.Message);
+            }
+            PopulateDataGridView();
         }
     }
 }

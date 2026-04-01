@@ -130,6 +130,7 @@
             this.Button_Insert.TabIndex = 9;
             this.Button_Insert.Text = "Button_Insert";
             this.Button_Insert.UseVisualStyleBackColor = true;
+            this.Button_Insert.Click += new System.EventHandler(this.Button_Insert_Click);
             // 
             // Button_Update
             // 
@@ -139,6 +140,7 @@
             this.Button_Update.TabIndex = 10;
             this.Button_Update.Text = "Button_Update";
             this.Button_Update.UseVisualStyleBackColor = true;
+            this.Button_Update.Click += new System.EventHandler(this.Button_Update_Click);
             // 
             // Button_Delete
             // 
@@ -148,6 +150,7 @@
             this.Button_Delete.TabIndex = 11;
             this.Button_Delete.Text = "Button_Delete";
             this.Button_Delete.UseVisualStyleBackColor = true;
+            this.Button_Delete.Click += new System.EventHandler(this.Button_Delete_Click);
             // 
             // Upisnica
             // 
