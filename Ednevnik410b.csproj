@@ -100,6 +100,9 @@
     <EmbeddedResource Include="Sifarnik.resx">
       <DependentUpon>Sifarnik.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Upisnica.resx">
+      <DependentUpon>Upisnica.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
